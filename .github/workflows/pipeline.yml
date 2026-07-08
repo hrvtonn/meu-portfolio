@@ -1,0 +1,63 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - developer
+
+jobs:
+  sast:
+    name: 0. SAST (Segurança)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run Security Scan
+        run: echo "Adicione aqui o comando da sua ferramenta de segurança"
+
+  build:
+    name: 1. Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies (Auth)
+        run: cd 08_07/auth-service && npm install
+        
+      - name: Install dependencies (Frontend)
+        run: cd 08_07/frontend && npm install
+        
+      - name: Install dependencies (Order)
+        run: cd 08_07/order-service && npm install
+        
+      - name: Install dependencies (Payment)
+        run: cd 08_07/payment-service && npm install
+        
+      - name: Install dependencies (Sales)
+        run: cd 08_07/sales-service && npm install
+
+  lint:
+    name: 2. Lint & Quality
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run Lint
+        run: echo "Adicione aqui o comando de lint"
+
+  test:
+    name: 3. Test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run Tests
+        run: echo "Adicione aqui o comando de testes"

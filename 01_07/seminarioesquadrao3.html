@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esquadrão 3 - Measurement | FastByte Delivery</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --primary-color: #7b2cbf;
+            --secondary-color: #5a189a;
+            --text-color: #c9d1d9;
+            --text-light: #f0f6fc;
+            --accent-color: #00f5d4;
+            --danger-color: #ff595e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-container {
+            width: 90%;
+            max-width: 1150px;
+            height: 80vh;
+            position: relative;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid #30363d;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+        }
+
+        .slide {
+            display: none;
+            height: 100%;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .speaker-badge {
+            align-self: flex-start;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1, h2 {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 2.5rem; border-left: 5px solid var(--accent-color); padding-left: 15px; }
+        
+        .title-slide {
+            text-align: center;
+            justify-content: center !important;
+            align-items: center;
+        }
+        .title-slide h1 {
+            font-size: 3.5rem;
+            border-left: none;
+            padding-left: 0;
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 15px; }
+        ul { margin-left: 25px; font-size: 1.1rem; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--text-light); }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .box {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid #30363d;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .danger-box { border-left: 4px solid var(--danger-color); background-color: rgba(255, 89, 94, 0.05); }
+        .success-box { border-left: 4px solid var(--accent-color); background-color: rgba(0, 245, 212, 0.05); }
+        .accent-box { border-left: 4px solid var(--primary-color); background-color: rgba(123, 44, 191, 0.05); }
+
+        /* Controles */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1150px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover { background-color: var(--secondary-color); }
+        .btn:disabled { background-color: #21262d; color: #8b949e; cursor: not-allowed; }
+        .progress-indicator { font-size: 0.95rem; color: #8b949e; }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        
+        <!-- SLIDE 1: Capa -->
+        <div class="slide active title-slide">
+            <h1>Esquadrão 3: Measurement</h1>
+            <p style="font-size: 1.5rem; color: var(--text-color); margin-top: 10px;">A Jornada FastByte Delivery — Atividade Prática</p>
+            <div style="margin-top: 30px; font-size: 0.95rem; color: #8b949e;">
+                Referência de base: <strong>fastbyte_ato1_cams.pdf</strong>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Conceito (Ronaldo) -->
+        <div class="slide">
+            <div class="speaker-badge">Apresentação: Ronaldo</div>
+            <h1>1. O que é Measurement (Mensuração)?</h1>
+            <p>É o pilar do DevOps responsável por <strong>coletar, monitorar e analisar</strong> dados e métricas do sistema em tempo real.</p>
+            
+            <div class="accent-box" style="padding: 20px; margin: 20px 0; font-style: italic; font-size: 1.3rem; text-align: center;">
+                “Se você não mede, você não consegue melhorar.”
+            </div>
+            
+            <p>Em vez de adotar uma postura reativa e esperar que o aplicativo caia deixando os clientes na mão, a equipe acompanha indicadores técnicos constantemente para prever e neutralizar incidentes antes que eles impactem a experiência do usuário.</p>
+        </div>
+
+        <!-- SLIDE 3: Anti-Padrão (Alan) -->
+        <div class="slide">
+            <div class="speaker-badge">Apresentação: Alan</div>
+            <h1>O Cenário Atual da FastByte (Anti-Padrão)</h1>
+            <div class="grid-2">
+                <div class="box danger-box">
+                    <strong>Como a empresa opera hoje:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Ninguém monitora a saúde dos servidores.</li>
+                        <li>Desenvolvedores apenas entregam o código correndo.</li>
+                        <li>Operações descobre problemas só quando tudo cai.</li>
+                        <li>Ausência total de alertas estruturados e dashboards.</li>
+                        <li>Tomada de decisões baseada inteiramente no "achismo".</li>
+                    </ul>
+                </div>
+                <div class="box danger-box">
+                    <strong>Consequências diretas para o negócio:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Aplicativo frequentemente fora do ar.</li>
+                        <li>Clientes famintos desistem e não fazem pedidos.</li>
+                        <li>Perda financeira severa e imediata.</li>
+                        <li>Reclamações em massa nas redes sociais.</li>
+                        <li>Clima pesado e conflitos constantes entre Dev e Ops.</li>
+                        <li>Demora excessiva para achar a causa raiz dos erros.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Ferramentas PARTE 1 (Vinicius) -->
+        <div class="slide">
+            <div class="speaker-badge">Apresentação: Vinicius</div>
+            <h1>2. Práticas e Ferramentas essenciais</h1>
+            <div class="grid-2">
+                <div class="box">
+                    <strong style="color: var(--accent-color); font-size: 1.3rem;">Prometheus + Node Exporter</strong>
+                    <p style="margin-top: 10px; font-size: 1.05rem;">O <strong>Node Exporter</strong> extrai dados do hardware e o <strong>Prometheus</strong> realiza a coleta automática dessas métricas.</p>
+                    <ul>
+                        <li>Uso de processamento (CPU) e memória.</li>
+                        <li>Tráfego de rede e volume de requisições.</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <strong style="color: var(--accent-color); font-size: 1.3rem;">Grafana</strong>
+                    <p style="margin-top: 10px; font-size: 1.05rem;">Transforma os dados brutos coletados em painéis (dashboards) visuais, limpos e intuitivos.</p>
+                    <ul>
+                        <li>Exibe o tempo de resposta do app.</li>
+                        <li>Mostra a quantidade exata de usuários online na sexta-feira.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Ferramentas PARTE 2 (Vinicius) -->
+        <div class="slide">
+            <div class="speaker-badge">Apresentação: Vinicius</div>
+            <h1>Práticas e Ferramentas (Continuação)</h1>
+            <div class="grid-2">
+                <div class="box">
+                    <strong style="color: var(--accent-color); font-size: 1.3rem;">Alertmanager</strong>
+                    <p style="margin-top: 10px; font-size: 1.05rem;">Dispara notificações automatizadas e inteligentes assim que o sistema cruzar limites perigosos.</p>
+                    <p style="font-size: 0.95rem;"><strong>Exemplos:</strong> CPU acima de 90% ou servidores indisponíveis.</p>
+                    <p style="font-size: 0.95rem;"><strong>Canais:</strong> Slack, Discord, Microsoft Teams ou E-mail.</p>
+                </div>
+                <div class="box">
+                    <strong style="color: var(--accent-color); font-size: 1.3rem;">ELK Stack</strong>
+                    <p style="margin-top: 10px; font-size: 1.05rem;"><strong>Elasticsearch + Logstash + Kibana</strong></p>
+                    <p style="font-size: 1.05rem;">Centraliza e analisa os logs gerados pelas aplicações.</p>
+                    <ul>
+                        <li>Quando acontece uma falha inesperada, a equipe localiza a linha exata do problema em segundos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Métricas Importantes (Hery) -->
+        <div class="slide">
+            <div class="speaker-badge">Apresentação: Hery</div>
+            <h1>Métricas Técnicas Essenciais</h1>
+            <div class="grid-3">
+                <div class="box">
+                    <strong>Infraestrutura Básica</strong>
+                    <ul style="font-size: 0.95rem; margin-top: 8px;">
+                        <li><strong>Uso da CPU:</strong> Indica servidores sobrecarregados.</li>
+                        <li><strong>Memória RAM:</strong> Evita travamentos por falta de memória.</li>
+                        <li><strong>Espaço em Disco:</strong> Evita parada total de gravação de dados.</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <strong>Performance do Usuário</strong>
+                    <ul style="font-size: 0.95rem; margin-top: 8px;">
+                        <li><strong>Tempo de Resposta:</strong> Rapidez do app (quanto menor, melhor).</li>
+                        <li><strong>Latência:</strong> Tempo exato que o servidor leva para responder uma ação.</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <strong>Saúde do Negócio</strong>
+                    <ul style="font-size: 0.95rem; margin-top: 8px;">
+                        <li><strong>Disponibilidade (Uptime):</strong> Tempo online (Ex: Meta de 99,9%).</li>
+                        <li><strong>Taxa de Erros:</strong> Quantidade de falhas por minuto.</li>
+                        <li><strong>Nº de Requisições:</strong> Quantidade de acessos simultâneos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Estudo de Caso Netflix (Vinicius Lacerda) -->
+        <div class="slide">
+            <div class="speaker-badge">Apresentação: Vinicius Lacerda</div>
+            <h1>3. Estudo de Caso Real: Netflix</h1>
+            <p>A Netflix é referência mundial em alta disponibilidade, gerenciando milhares de microsserviços simultaneamente com cultura analítica:</p>
+            <ul>
+                <li><strong>Monitoramento Massivo:</strong> Coleta contínua de telemetria utilizando Prometheus, Grafana e soluções customizadas.</li>
+                <li><strong>Auto-Correção:</strong> Se uma métrica aponta comportamento instável em um servidor, o sistema de alertas avisa o ecossistema, isola a máquina com defeito e direciona o tráfego para uma nova de forma automática.</li>
+                <li><strong>Resultado prático:</strong> Mesmo com milhões de pessoas assistindo a vídeos simultaneamente, o usuário final raramente percebe oscilações.</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 8: Resolução FastByte (Vinicius Lacerda) -->
+        <div class="slide">
+            <div class="speaker-badge">Apresentação: Vinicius Lacerda</div>
+            <h1>Como Resolver o Problema da FastByte Delivery?</h1>
+            <div class="box success-box">
+                <strong>Plano de Ação Prático do Esquadrão 3:</strong>
+                <ul style="margin-top: 15px; grid-template-columns: 1fr 1fr; display: grid; gap: 10px;">
+                    <li>✔ Instalar o Prometheus com Node Exporter nos servidores.</li>
+                    <li>✔ Construir painéis unificados e visuais no Grafana.</li>
+                    <li>✔ Configurar alertas automatizados via Alertmanager no chat da equipe.</li>
+                    <li>✔ Monitorar em tempo real: CPU, RAM, Disco, Erros e Tempo de resposta.</li>
+                    <li>✔ Analisar logs centralizados diariamente via ELK Stack.</li>
+                    <li>✔ Checar métricas históricas antes de liberar qualquer atualização.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Conclusão (Vinicius Lacerda) -->
+        <div class="slide">
+            <div class="speaker-badge">Apresentação: Vinicius Lacerda</div>
+            <h1>Conclusão da Transformação</h1>
+            <div class="grid-2" style="margin-top: 20px;">
+                <div class="box danger-box">
+                    <strong>Sem Measurement:</strong>
+                    <p style="font-size: 1.05rem; margin-top: 10px;">A empresa opera às escuras, descobre problemas tarde demais, perde dinheiro e mantém times desalinhados.</p>
+                </div>
+                <div class="box success-box">
+                    <strong>Com Measurement:</strong>
+                    <p style="font-size: 1.05rem; margin-top: 10px;">Erros são rastreados de imediato, decisões de infraestrutura são baseadas em dados exatos, gerando estabilidade e clientes satisfeitos.</p>
+                </div>
+            </div>
+            <h2 style="text-align: center; margin-top: 40px; color: var(--accent-color);">Obrigado! Perguntas?</h2>
+        </div>
+
+    </div>
+
+    <!-- Controles -->
+    <div class="controls">
+        <button class="btn" id="prevBtn" onclick="changeSlide(-1)" disabled>Anterior</button>
+        <span class="progress-indicator" id="progress">Slide 1 de 9</span>
+        <button class="btn" id="nextBtn" onclick="changeSlide(1)">Próximo</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progress = document.getElementById('progress');
+
+        function updateControls() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+            progress.innerText = `Slide ${currentSlide + 1} de ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide += direction;
+            slides[currentSlide].classList.add('active');
+            updateControls();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) changeSlide(1);
+            if (e.key === 'ArrowLeft' && currentSlide > 0) changeSlide(-1);
+        });
+    </script>
+</body>
+</html>
